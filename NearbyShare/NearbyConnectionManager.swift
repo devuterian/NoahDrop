@@ -185,8 +185,11 @@ public protocol ShareExtensionDelegate:AnyObject{
 
 public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNearbyConnectionDelegate, OutboundNearbyConnectionDelegate{
 	
-	private var tcpListener:NWListener;
+	private var tcpListener:NWListener?
 	public let endpointID:[UInt8]=generateEndpointID()
+	public private(set) var isVisible=false
+	/// Where received files are saved. nil means the user's Downloads folder.
+	public var downloadDirectory:URL?
 	private var mdnsService:NetService?
 	private var activeConnections:[String:InboundNearbyConnection]=[:]
 	private var foundServices:[String:FoundServiceInfo]=[:]
@@ -206,18 +209,46 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 	public static let shared=NearbyConnectionManager()
 	
 	override init() {
-		tcpListener=try! NWListener(using: NWParameters(tls: .none))
 		super.init()
 	}
 	
 	public func becomeVisible(){
+		if isVisible{
+			return
+		}
+		isVisible=true
 		startTCPListener()
 	}
 	
+	public func becomeInvisible(){
+		if !isVisible{
+			return
+		}
+		isVisible=false
+		mdnsService?.stop()
+		mdnsService=nil
+		// A cancelled NWListener can't be restarted, so a new one is created in becomeVisible(). Transfers already in progress keep going.
+		tcpListener?.cancel()
+		tcpListener=nil
+	}
+	
+	func receivedFilesDirectory() throws -> URL{
+		if let dir=downloadDirectory{
+			try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+			return dir.resolvingSymlinksInPath()
+		}
+		return (try FileManager.default.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)).resolvingSymlinksInPath()
+	}
+	
 	private func startTCPListener(){
+		let tcpListener=try! NWListener(using: NWParameters(tls: .none))
+		self.tcpListener=tcpListener
 		tcpListener.stateUpdateHandler={(state:NWListener.State) in
 			if case .ready = state {
-				self.initMDNS()
+				DispatchQueue.main.async {
+					guard self.tcpListener===tcpListener else {return}
+					self.initMDNS(port: tcpListener.port!)
+				}
 			}
 		}
 		tcpListener.newConnectionHandler={(connection:NWConnection) in
@@ -239,7 +270,7 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 		return id
 	}
 	
-	private func initMDNS(){
+	private func initMDNS(port listenerPort:NWEndpoint.Port){
 		let nameBytes:[UInt8]=[
 			0x23, // PCP
 			endpointID[0], endpointID[1], endpointID[2], endpointID[3],
@@ -249,7 +280,7 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 		let name=Data(nameBytes).urlSafeBase64EncodedString()
 		let endpointInfo=EndpointInfo(name: Host.current().localizedName!, deviceType: .computer)
 		
-		let port:Int32=Int32(tcpListener.port!.rawValue)
+		let port:Int32=Int32(listenerPort.rawValue)
 		mdnsService=NetService(domain: "", type: "_FC9F5ED42C8A._tcp.", name: name, port: port)
 		mdnsService?.delegate=self
 		mdnsService?.setTXTRecord(NetService.data(fromTXTRecord: [

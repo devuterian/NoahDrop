@@ -107,6 +107,38 @@
         }
       }
     },
+    "AutoAccept" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Accept files automatically"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "파일 자동으로 받기"
+          }
+        }
+      }
+    },
+    "ChooseFolder" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Choose"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선택"
+          }
+        }
+      }
+    },
     "Decline" : {
       "localizations" : {
         "ar" : {
@@ -665,6 +697,54 @@
         }
       }
     },
+    "FilesReceived" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Received %1$@ from %2$@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$@에서 %1$@ 받음"
+          }
+        }
+      }
+    },
+    "LaunchAtLogin" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open at login"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그인 시 열기"
+          }
+        }
+      }
+    },
+    "LaunchAtLoginError" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Couldn't change the login item setting"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그인 항목 설정을 바꾸지 못했어요"
+          }
+        }
+      }
+    },
     "NFiles" : {
       "localizations" : {
         "ar" : {
@@ -1023,109 +1103,109 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "يحتاج NearDrop إلى القدرة على عرض الإشعارات لنقل الملفات الواردة. يرجى السماح بالإشعارات في إعدادات النظام."
+            "value" : "يحتاج NoahDrop إلى القدرة على عرض الإشعارات لنقل الملفات الواردة. يرجى السماح بالإشعارات في إعدادات النظام."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop benötigt die Erlaubnis Mitteilungen für eingehende Datenransfers anzuzeigen. Bitte erlaube Mitteilungen in den Systemeinstellungen."
+            "value" : "NoahDrop benötigt die Erlaubnis Mitteilungen für eingehende Datenransfers anzuzeigen. Bitte erlaube Mitteilungen in den Systemeinstellungen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "NearDrop needs to be able to display notifications for incoming file transfers. Please allow notifications in System Settings."
+            "value" : "NoahDrop needs to be able to display notifications for incoming file transfers. Please allow notifications in System Settings."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop necesita poder mostrar notificaciones para las transferencias de archivos entrantes. Permita las notificaciones en la configuración del sistema."
+            "value" : "NoahDrop necesita poder mostrar notificaciones para las transferencias de archivos entrantes. Permita las notificaciones en la configuración del sistema."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop doit pouvoir afficher des notifications pour les transferts de fichiers entrants. Veuillez autoriser les notifications dans les paramètres système."
+            "value" : "NoahDrop doit pouvoir afficher des notifications pour les transferts de fichiers entrants. Veuillez autoriser les notifications dans les paramètres système."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A NearDrop-nak szüksége van értesítéseket küldeni a bejövő fájlok fogadásához. Kérlek engedélyezd az értesítésekhez való hozzáférést a Rendszerbeállításokban."
+            "value" : "A NoahDrop-nak szüksége van értesítéseket küldeni a bejövő fájlok fogadásához. Kérlek engedélyezd az értesítésekhez való hozzáférést a Rendszerbeállításokban."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop deve essere in grado di visualizzare le notifiche per i trasferimenti di file in entrata. Consenti le notifiche nelle Impostazioni di sistema."
+            "value" : "NoahDrop deve essere in grado di visualizzare le notifiche per i trasferimenti di file in entrata. Consenti le notifiche nelle Impostazioni di sistema."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDropでファイル受信の通知を表示できる必要があります。システム設定で通知を許可してください。"
+            "value" : "NoahDropでファイル受信の通知を表示できる必要があります。システム設定で通知を許可してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop에서 파일 수신에 대한 알림을 표시할 수 있어야 합니다. 시스템 설정에서 알림을 허용하세요."
+            "value" : "NoahDrop에서 파일 수신에 대한 알림을 표시할 수 있어야 합니다. 시스템 설정에서 알림을 허용하세요."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop moet meldingen kunnen weergeven voor inkomende bestandsoverdrachten. Sta meldingen toe in de systeeminstellingen."
+            "value" : "NoahDrop moet meldingen kunnen weergeven voor inkomende bestandsoverdrachten. Sta meldingen toe in de systeeminstellingen."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O NearDrop precisa ser capaz de exibir notificações para o recebimento de arquivos. Por favor, habilite as notificações em Ajustes do Sistema."
+            "value" : "O NoahDrop precisa ser capaz de exibir notificações para o recebimento de arquivos. Por favor, habilite as notificações em Ajustes do Sistema."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O NearDrop precisa ser capaz de mostrar notificações para receber ficheiros. Por favor, active as notificações em Definições do Sistema."
+            "value" : "O NoahDrop precisa ser capaz de mostrar notificações para receber ficheiros. Por favor, active as notificações em Definições do Sistema."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop trebuie să poată afișa notificări pentru transferurile de fișiere primite. Vă rugăm să permiteți notificările în Setările Sistemului."
+            "value" : "NoahDrop trebuie să poată afișa notificări pentru transferurile de fișiere primite. Vă rugăm să permiteți notificările în Setările Sistemului."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop необходима возможность показывать уведомления о входящих файлах. Пожалуйста, разрешите уведомления в Системных настройках."
+            "value" : "NoahDrop необходима возможность показывать уведомления о входящих файлах. Пожалуйста, разрешите уведомления в Системных настройках."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop ไม่สามารถแสดงการแจ้งเตือนไฟล์ที่เข้ามาได้ โปรดให้สิทธิ์การแจ้งเตือน ในการตั้งค่าระบบ"
+            "value" : "NoahDrop ไม่สามารถแสดงการแจ้งเตือนไฟล์ที่เข้ามาได้ โปรดให้สิทธิ์การแจ้งเตือน ในการตั้งค่าระบบ"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop потрібна можливість показувати сповіщення про вхідні файли. Будь ласка, дозвольте сповіщення у Системних налаштуваннях."
+            "value" : "NoahDrop потрібна можливість показувати сповіщення про вхідні файли. Будь ласка, дозвольте сповіщення у Системних налаштуваннях."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop 需显示是否接收文件传输的通知。请在 系统设置 中允许通知。"
+            "value" : "NoahDrop 需显示是否接收文件传输的通知。请在 系统设置 中允许通知。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop 需要顯示檔案傳入的通知，請在系統設定中允許通知。"
+            "value" : "NoahDrop 需要顯示檔案傳入的通知，請在系統設定中允許通知。"
           }
         }
       }
@@ -1475,109 +1555,221 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "إنهاء NearDrop"
+            "value" : "إنهاء NoahDrop"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop Beenden"
+            "value" : "NoahDrop Beenden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Quit NearDrop"
+            "value" : "Quit NoahDrop"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Salir de NearDrop"
+            "value" : "Salir de NoahDrop"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quitter NearDrop"
+            "value" : "Quitter NoahDrop"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop bezárása"
+            "value" : "NoahDrop bezárása"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Esci da NearDrop"
+            "value" : "Esci da NoahDrop"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDropを終了"
+            "value" : "NoahDropを終了"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop 종료"
+            "value" : "NoahDrop 종료"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop afsluiten"
+            "value" : "NoahDrop afsluiten"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sair do NearDrop"
+            "value" : "Sair do NoahDrop"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sair do NearDrop"
+            "value" : "Sair do NoahDrop"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Închide NearDrop"
+            "value" : "Închide NoahDrop"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Завершить NearDrop"
+            "value" : "Завершить NoahDrop"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ออก NearDrop"
+            "value" : "ออก NoahDrop"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Завершити NearDrop"
+            "value" : "Завершити NoahDrop"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "退出 NearDrop"
+            "value" : "退出 NoahDrop"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "退出 NearDrop"
+            "value" : "退出 NoahDrop"
+          }
+        }
+      }
+    },
+    "ReceiveOnLaunch" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Receive files when NoahDrop opens"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NoahDrop을 열면 바로 받기"
+          }
+        }
+      }
+    },
+    "Receiving" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Receive files"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "파일 받기"
+          }
+        }
+      }
+    },
+    "ReceivingFiles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Receiving %1$@ from %2$@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%2$@에서 %1$@ 받는 중"
+          }
+        }
+      }
+    },
+    "ReceivingOff" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Receiving is off"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "수신 꺼짐"
+          }
+        }
+      }
+    },
+    "SaveTo" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Save to: %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장 위치: %@"
+          }
+        }
+      }
+    },
+    "SetupWizard" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Setup Wizard…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정 마법사…"
+          }
+        }
+      }
+    },
+    "ShowReceivedFiles" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Show Received Files"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "받은 파일 보기"
           }
         }
       }
@@ -1804,6 +1996,422 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "所有人都可與你分享內容"
+          }
+        }
+      }
+    },
+    "Wizard.AutoAccept.Ask" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Ask me every time (recommended)"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "매번 물어보기 (추천)"
+          }
+        }
+      }
+    },
+    "Wizard.AutoAccept.Auto" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Accept automatically"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "자동으로 받기"
+          }
+        }
+      }
+    },
+    "Wizard.AutoAccept.Body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "When a phone sends you something, should NoahDrop ask first or just save it?"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "폰에서 뭔가 보내면, 먼저 물어볼까요 아니면 바로 저장할까요?"
+          }
+        }
+      }
+    },
+    "Wizard.AutoAccept.Note" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "NoahDrop is visible to everyone on your Wi-Fi network. With automatic accept, anyone on the network can drop files on your Mac."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NoahDrop은 같은 Wi-Fi에 있는 모두에게 보여요. 자동으로 받기를 켜면 같은 네트워크의 누구든 이 Mac에 파일을 넣을 수 있어요."
+          }
+        }
+      }
+    },
+    "Wizard.AutoAccept.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Incoming files"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "들어오는 파일"
+          }
+        }
+      }
+    },
+    "Wizard.Back" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Back"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이전"
+          }
+        }
+      }
+    },
+    "Wizard.Done.Body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "To send a file from your phone, keep both devices on the same Wi-Fi, tap Share → Quick Share, and pick \"%@\".\n\nTo send from this Mac to a phone, right-click a file in Finder and choose Share → NoahDrop."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "폰에서 보내려면 두 기기를 같은 Wi-Fi에 두고, 공유 → Quick Share를 누른 뒤 \"%@\"을(를) 고르세요.\n\n이 Mac에서 폰으로 보내려면 Finder에서 파일을 우클릭하고 공유 → NoahDrop을 고르세요."
+          }
+        }
+      }
+    },
+    "Wizard.Done.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "All set"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "준비 끝"
+          }
+        }
+      }
+    },
+    "Wizard.Finish" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Done"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "완료"
+          }
+        }
+      }
+    },
+    "Wizard.Folder.Body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Where should received files go?"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "받은 파일을 어디에 저장할까요?"
+          }
+        }
+      }
+    },
+    "Wizard.Folder.Custom" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Another folder…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다른 폴더…"
+          }
+        }
+      }
+    },
+    "Wizard.Folder.Downloads" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Downloads folder"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다운로드 폴더"
+          }
+        }
+      }
+    },
+    "Wizard.Folder.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Where to save"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장 위치"
+          }
+        }
+      }
+    },
+    "Wizard.Next" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Next"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "다음"
+          }
+        }
+      }
+    },
+    "Wizard.Notifications.Allow" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Allow Notifications"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림 허용하기"
+          }
+        }
+      }
+    },
+    "Wizard.Notifications.Allowed" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "✓ Notifications are allowed"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "✓ 알림이 허용됐어요"
+          }
+        }
+      }
+    },
+    "Wizard.Notifications.Body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "When someone sends you a file, NoahDrop shows a notification with the PIN and Accept/Decline buttons. Without notifications you won't know a file is coming."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "누가 파일을 보내면 NoahDrop이 PIN과 수락/거절 버튼이 있는 알림을 띄워요. 알림이 없으면 파일이 오는지 알 수 없어요."
+          }
+        }
+      }
+    },
+    "Wizard.Notifications.Denied" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Notifications are turned off. Turn them on for NoahDrop in System Settings → Notifications."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림이 꺼져 있어요. 시스템 설정 → 알림에서 NoahDrop을 켜 주세요."
+          }
+        }
+      }
+    },
+    "Wizard.Notifications.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Notifications"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "알림"
+          }
+        }
+      }
+    },
+    "Wizard.Startup.Body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You can always turn receiving on or off from the menu bar."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "파일 받기는 언제든 메뉴 막대에서 켜고 끌 수 있어요."
+          }
+        }
+      }
+    },
+    "Wizard.Startup.Login" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Open NoahDrop when I log in"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로그인하면 NoahDrop 열기"
+          }
+        }
+      }
+    },
+    "Wizard.Startup.Receive" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Start receiving as soon as NoahDrop opens"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NoahDrop을 열면 바로 받기 시작"
+          }
+        }
+      }
+    },
+    "Wizard.Startup.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Starting up"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "시작 설정"
+          }
+        }
+      }
+    },
+    "Wizard.Welcome.Body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "NoahDrop lets Android phones send files to this Mac with Quick Share. It lives in the menu bar.\n\nA few quick questions, one at a time. You can change everything later from the menu bar icon."
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NoahDrop은 안드로이드 폰에서 Quick Share로 이 Mac에 파일을 보낼 수 있게 해 줘요. 메뉴 막대에 살아요.\n\n몇 가지만 하나씩 물어볼게요. 나중에 메뉴 막대 아이콘에서 전부 바꿀 수 있어요."
+          }
+        }
+      }
+    },
+    "Wizard.Welcome.Title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Welcome to NoahDrop"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NoahDrop에 오신 걸 환영해요"
+          }
+        }
+      }
+    },
+    "Wizard.WindowTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "NoahDrop Setup"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NoahDrop 설정"
           }
         }
       }

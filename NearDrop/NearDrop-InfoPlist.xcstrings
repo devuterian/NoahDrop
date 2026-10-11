@@ -8,13 +8,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "NearDrop"
+            "value" : "NoahDrop"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop"
+            "value" : "NoahDrop"
           }
         }
       },
@@ -27,13 +27,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "NearDrop needs access to your local network to send and receive files."
+            "value" : "NoahDrop needs access to your local network to send and receive files."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NearDrop необходим доступ к устройствам в вашей локальной сети для приёма и передачи файлов."
+            "value" : "NoahDrop необходим доступ к устройствам в вашей локальной сети для приёма и передачи файлов."
           }
         }
       }

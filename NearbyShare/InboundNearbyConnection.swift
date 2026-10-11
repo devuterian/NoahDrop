@@ -303,7 +303,7 @@ class InboundNearbyConnection: NearbyConnection{
 		guard frame.hasV1, frame.v1.hasIntroduction else { throw NearbyError.requiredFieldMissing("shareNearbyFrame.v1.introduction") }
 		currentState = .waitingForUserConsent
 		if frame.v1.introduction.fileMetadata.count>0 && frame.v1.introduction.textMetadata.isEmpty{
-			let downloadsDirectory=(try FileManager.default.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)).resolvingSymlinksInPath()
+			let downloadsDirectory=try NearbyConnectionManager.shared.receivedFilesDirectory()
 			for file in frame.v1.introduction.fileMetadata{
 				let dest=makeFileDestinationURL(downloadsDirectory.appendingPathComponent(file.name))
 				let info=InternalFileInfo(meta: FileMetadata(name: file.name, size: file.size, mimeType: file.mimeType),
@@ -324,7 +324,7 @@ class InboundNearbyConnection: NearbyConnection{
 					self.delegate?.obtainUserConsent(for: metadata, from: self.remoteDeviceInfo!, connection: self)
 				}
 			}else if case .text=meta.type{
-				let downloadsDirectory=(try FileManager.default.url(for: .downloadsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)).resolvingSymlinksInPath()
+				let downloadsDirectory=try NearbyConnectionManager.shared.receivedFilesDirectory()
 				let dateFormatter=DateFormatter()
 				dateFormatter.dateFormat="yyyy-MM-dd HH.mm.ss"
 				let dest=makeFileDestinationURL(downloadsDirectory.appendingPathComponent("\(dateFormatter.string(from: Date())).txt"))

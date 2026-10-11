@@ -1,3 +1,17 @@
+# NoahDrop
+
+**NoahDrop** is a fork of [NearDrop](https://github.com/grishka/NearDrop) that adds the features from [NearDropAuto](https://github.com/billylo1/NearDropAuto) plus a few more:
+
+* **Receive on/off** — turn receiving on or off from the menu bar. While it's off, your Mac doesn't show up for anyone.
+* **Accept files automatically** (from NearDropAuto) — no Accept/Decline notification; you get a "received" notification that opens the folder.
+* **Open at login** (from NearDropAuto, macOS 13+) and **start receiving when the app opens**.
+* **Save location** — Downloads or any folder you pick (the main app isn't sandboxed so it can write anywhere).
+* **Setup wizard** — on first launch NoahDrop asks one question per page: notifications, auto-accept, save folder, startup. Reopen it any time from the menu bar.
+
+Bundle ID: `com.marierie.NoahDrop`. Everything below is the original NearDrop README.
+
+---
+
 **NearDrop** is a partial implementation of [Google's Nearby Share](https://blog.google/products/android/nearby-share/)/Quick Share for macOS.
 
 [Protocol documentation](/PROTOCOL.md) is available separately.
