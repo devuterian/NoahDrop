@@ -1,108 +1,88 @@
+<div align="center">
+<img src="NearDrop/Assets.xcassets/AppIcon.appiconset/1024.png" width="180" alt="NoahDrop 아이콘">
+
 # NoahDrop
 
-**NoahDrop** is a fork of [NearDrop](https://github.com/grishka/NearDrop) that adds the features from [NearDropAuto](https://github.com/billylo1/NearDropAuto) plus a few more:
+<p>안드로이드 Quick Share를 Mac에서 받는 앱, NearDrop 개조판</p>
+</div>
 
-* **Receive on/off** — turn receiving on or off from the menu bar. While it's off, your Mac doesn't show up for anyone.
-* **Accept files automatically** (from NearDropAuto) — no Accept/Decline notification; you get a "received" notification that opens the folder.
-* **Open at login** (from NearDropAuto, macOS 13+) and **start receiving when the app opens**.
-* **Save location** — Downloads or any folder you pick (the main app isn't sandboxed so it can write anywhere).
-* **Setup wizard** — on first launch NoahDrop asks one question per page: notifications, auto-accept, save folder, startup. Reopen it any time from the menu bar.
+## 이게 뭔데
 
-Bundle ID: `com.marierie.NoahDrop`. Everything below is the original NearDrop README.
+NoahDrop은 제가 쓰려고 만든 [NearDrop](https://github.com/grishka/NearDrop)의 **개조판**입니다.
+NearDrop은 안드로이드 폰에서 Quick Share(구 Nearby Share)로 보낸 파일을 Mac에서 받게 해주는 메뉴 막대 앱인데, 쓰다 보니 아쉬운 게 몇 개 있었습니다.
+그래서 [NearDropAuto](https://github.com/billylo1/NearDropAuto)에 있던 자동으로 받기, 로그인 시 열기를 가져오고, 필요한 걸 몇 개 더 넣었습니다요.
 
----
+## 뭐가 다른데
 
-**NearDrop** is a partial implementation of [Google's Nearby Share](https://blog.google/products/android/nearby-share/)/Quick Share for macOS.
+최신 릴리즈는 [2.2.2-noah.1](https://github.com/devuterian/NoahDrop/releases/tag/v2.2.2-noah.1)입니다. 원본 NearDrop **2.2.2** 기준입니다.
 
-[Protocol documentation](/PROTOCOL.md) is available separately.
+**받기**
 
-The app lives in your menu bar and saves files to your downloads folder. It's that simple, really.
+- **받기를 껐다 켤 수 있습니다.** 메뉴 막대 아이콘 → "파일 받기"를 누르면 됩니다. 끄면 같은 Wi-Fi에 있는 누구에게도 이 Mac이 안 보입니다. 카페 같은 데서 좋습니다.
+- **파일을 자동으로 받을 수 있습니다.** 수락 버튼 안 누르고 바로 저장합니다. 다 받으면 "받음" 알림이 뜨고, 누르면 저장 폴더가 열립니다.
+- **링크는 자동으로 안 엽니다.** 자동으로 받기를 켜놔도 링크는 꼭 물어봅니다. 남이 보낸 링크가 멋대로 열리면 무서우니까요.
+- **저장 위치를 고를 수 있습니다.** 원래는 다운로드 폴더 고정이었는데, 아무 폴더나 고를 수 있게 했습니다.
 
-## Limitations
+**켜질 때**
 
-* **Wi-Fi LAN only**. Your Android device and your Mac need to be on the same network for this app to work. Google's implementation supports multiple mediums, including Wi-Fi Direct, Wi-Fi hotspot, Bluetooth, some kind of 5G peer-to-peer connection, and even a WebRTC-based protocol that goes over the internet through Google servers. Wi-Fi direct isn't supported on macOS (Apple has their own, incompatible, AWDL thing, used in AirDrop). Bluetooth needs further reverse engineering.
-* **Visible to everyone on your network at all times** while the app is running. Limited visibility (contacts etc) requires talking to Google servers, and becoming temporarily visible requires listening for whatever triggers the "device nearby is sharing" notification.
+- **로그인하면 알아서 켜집니다.** macOS 13 이상에서 됩니다.
+- **앱을 열자마자 받기를 켤지 고를 수 있습니다.** 끄고 쓰다가 필요할 때만 켜는 것도 됩니다.
 
-## Installation
+**처음 켤 때**
 
-Download the latest build from the releases section, unzip, move to your applications folder.
+- **설정 마법사를 넣었습니다.** 처음 켜면 알림 → 자동으로 받기 → 저장 위치 → 시작 설정 순서로 하나씩 물어봅니다. 메뉴 막대 아이콘 → "설정 마법사…"로 언제든 다시 열 수 있습니다.
+- **새로 넣은 화면은 전부 한국어로 나옵니다.** Mac 언어가 한국어면 알아서 바뀝니다.
 
-Before running for the first time, right-click the app and select "Open", then confirm running an app from unidentified developer.
+**자잘한 것**
 
-Alternatively, you can use [Sentinel](https://github.com/alienator88/Sentinel) to bypass Gatekeeper.
+- **이름이 NoahDrop입니다.** 원본 NearDrop이랑 같이 깔아도 따로 인식됩니다. 그래도 둘 다 동시에 켜면 폰에 Mac이 두 번 보이니까 하나만 켜주세요.
+- **받는 파일 이름을 검사합니다.** 원본은 보내는 쪽이 정한 파일 이름을 그대로 써서, 이상한 이름이면 다운로드 폴더 밖에 파일이 생길 수 있었습니다. 원본은 샌드박스가 막아줬는데 NoahDrop은 샌드박스를 꺼서 직접 막았습니다.
 
-If you want the app to start on boot, [follow these steps to add NearDrop as a login item.](https://support.apple.com/guide/mac-help/open-items-automatically-when-you-log-in-mh15189/mac)
+## 버전별로 뭐가 바뀌었는데
 
-#### Installation with Homebrew
+**[2.2.2-noah.1](https://github.com/devuterian/NoahDrop/releases/tag/v2.2.2-noah.1) · 프리릴리즈**
 
-```
-brew install grishka/grishka/neardrop && sudo xattr -r -d com.apple.quarantine "/Applications/NearDrop.app"
-```
+- 원본 NearDrop 2.2.2 기준으로 처음 만들었습니다.
+- NearDropAuto의 자동으로 받기, 로그인 시 열기를 가져왔습니다.
+- 받기 껐다 켜기, 저장 위치 고르기, 설정 마법사, 한국어를 넣었습니다.
 
-## Contributing
+## 조잡해보이는데
 
-Pull requests that change the readme will not be accepted.
+네. 제가 쓰려고 만들었기 때문에 조잡합니다. 그래서 (혹시나 버그가 생긴다면) 파일이 안 받아진다든지 이상한 데 저장된다든지 할 수 있습니다. 이 레포지토리의 모든 파일을 컴퓨터에 설치했을 때 생기는 물적, 심적인 책임은 이용자에게 전부 있음을 인정한다고 간주합니다.
 
-Any AI-assisted contributions will not be accepted.
+NearDrop 원작자의 공식 릴리즈가 아닙니다. 이 앱에서 생긴 문제는 원본 저장소가 아니라 여기로 알려주세요.
 
-## FAQ
+그렇지만 제가 쓰려고 만들었기 때문에 잘 작동 안 되는 건 제가 용서를 못 합니다. [이슈](https://github.com/devuterian/NoahDrop/issues)를 보내주시면 최대한 수정해볼 수 있도록 노력하겠습니다.
 
-#### The app would not open because "Apple cannot check it for malicious software", you gotta fix your shit
+## 까는 법
 
-Right-click the app in Finder and select "Open". Or, open System Settings -> Privacy and security, scroll down and allow the app to run.
+파일은 [릴리즈 페이지](https://github.com/devuterian/NoahDrop/releases)에 있습니다. `NoahDrop-….dmg`를 받아서 열고, NoahDrop을 응용 프로그램 폴더로 끌어다 놓으면 됩니다. Apple Silicon, Intel 둘 다 됩니다. **macOS 12 이상**이 필요합니다.
 
-#### My Android device doesn't see my Mac
+> [!WARNING]
+> **서명이 없어서 처음엔 안 열립니다.** "Apple은 악성 코드가 없는지 확인할 수 없습니다"가 뜨면 시스템 설정 → 개인정보 보호 및 보안 맨 아래에서 "그래도 열기"를 눌러주세요. 터미널이 편하시면 `xattr -dr com.apple.quarantine /Applications/NoahDrop.app` 한 줄이면 됩니다.
 
-Make sure both devices are on the same Wi-Fi network. Local network communication may not work on some public networks — for example, in coffee shops or hotels. If you're on your own network, check your router settings to make sure it's not blocking local devices from talking to each other.
+몇 가지 알아두시면 좋은 것들입니다.
 
-#### How do I send files?
+- **같은 Wi-Fi에 있어야 합니다.** Wi-Fi Direct나 블루투스는 안 되고 같은 네트워크로만 주고받습니다. 카페나 호텔 와이파이는 기기끼리 통신을 막아둔 경우가 많아서 안 될 수 있습니다.
+- **받기를 켜두면 같은 네트워크의 모두에게 보입니다.** 연락처끼리만 보이게 하는 건 구글 서버가 필요해서 안 됩니다. 그래서 껐다 켜는 기능을 넣었습니다.
+- **폰에 PIN은 뜨는데 Mac에서 아무 일도 없으면** 방해 금지 모드를 꺼주세요. 알림이 팝업 없이 알림 센터로 바로 들어가 있을 때도 가끔 있습니다.
+- **메뉴 막대 아이콘을 숨기려면** Cmd를 누른 채 아이콘을 메뉴 막대 밖으로 끌어내면 됩니다. 다시 보이게 하려면 앱을 한 번 더 열면 됩니다.
 
-Right-click a file in Finder, select Share, then select NearDrop.
+## 보내는 법
 
-#### How do I send links?
+- **폰 → Mac:** 폰에서 공유 → Quick Share를 누르고 Mac 이름을 고르면 됩니다.
+- **Mac → 폰 (파일):** Finder에서 파일 우클릭 → 공유 → NoahDrop.
+- **Mac → 폰 (링크):** 메뉴 막대에서 파일 → 공유 → NoahDrop. Safari는 툴바의 공유 버튼으로도 됩니다.
 
-From the menu bar: File -> Share -> NearDrop. Safari also has a share button on the toolbar.
+**Mac에서 폰이 안 보이면** QR 코드를 쓰세요. 안드로이드는 특정 블루투스 신호를 받아야 자기를 드러내는데, macOS는 앱이 그 신호를 못 보내게 막아둡니다. 그래서 NoahDrop이 띄워주는 QR 코드를 폰으로 찍으면 됩니다. **삼성 폰은 QR 코드가 유일한 방법입니다.** 삼성이 아닌 폰은 Files by Google 앱의 "Quick Share" 버튼으로도 됩니다.
 
-#### My Mac doesn't see my Android device
+## 가져온 프로젝트들
 
-Unfortunately, Android listens for specific BLE (Bluetooth Low Energy) broadcasts to automatically become visible, and macOS doesn't allow apps to send them.
+여러 분이 만들어주신 코드를 가져와 제 취향에 맞게 수정했습니다. 만들어주신 분들께 진심으로 감사드립니다.
 
-On all Android devices, you scan the QR code generated by NearDrop to make everything happen automatically. You can also create an intent shortcut for the URL `https://quickshare.google/qrcode#key=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA` to launch the same activity, but **make sure that the visibility of your device is set to public**, otherwise it will not work. Complete intent:
-- Data: `https://quickshare.google/qrcode#key=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA`
-- Action: `android.intent.action.VIEW`
+- **[grishka · NearDrop](https://github.com/grishka/NearDrop)** 이 앱의 바탕이 된 프로젝트입니다. Quick Share 프로토콜을 직접 뜯어서 만드셨습니다. 프로토콜 문서는 [PROTOCOL.md](PROTOCOL.md)에 있습니다.
+- **[billylo1 · NearDropAuto](https://github.com/billylo1/NearDropAuto)** 자동으로 받기와 로그인 시 열기를 가져와 다시 만들었습니다.
 
-##### Samsung devices
+## 라이선스
 
-QR code (or the corresponding intent) is your only option.
-
-##### Non-Samsung devices
-
-Tap the "Quick Share" button in the "Google Files" app.
-
-To make it more easily accessible and/or if you don't want to install Google Files, you can use an app like [one of these](https://forum.xda-developers.com/t/how-to-manually-create-a-homescreen-shortcut-to-a-known-unique-android-activity.4336833/) to create a shortcut to launch one of these activity intents:
-
-- Option 1:
-  - Action: `com.google.android.gms.RECEIVE_NEARBY`
-  - Mime type: `*/*`
-- Option 2:
-  - Component name: `com.google.android.gms/.nearby.sharing.receive.ReceiveActivityQrCodeAlias`
-
-#### Can the menu bar icon be removed?
-
-Yes. Drag the icon off the menu bar while holding cmd. To bring it back, launch the app a second time, while it's already running.
-
-#### I'm sending something to my Mac, the Android device displays a PIN code, but nothing happens on the Mac
-
-Make sure you have "do not disturb" off. The notification may also sometimes (rarely) end up in the notification center without being shown as a popup first — I'm not sure why this happens.
-
-#### Why is the app not notarized?
-
-Because I don't want to pay Apple $99 a year for the privilege of developing macOS apps and I oppose their idea of security. The slightly less scary security warning isn't worth $99/year IMO.
-
-#### Why is this not on the app store?
-
-Because I don't want to pay Apple $99 a year for the privilege of developing macOS apps. I also don't want to have to go through the review process.
-
-#### Why not the other way around, i.e. AirDrop on Android?
-
-While I am an Android developer, and I have looked into this, this is nigh-impossible. AirDrop uses [AWDL](https://stackoverflow.com/questions/19587701/what-is-awdl-apple-wireless-direct-link-and-how-does-it-work), Apple's own proprietary take on peer-to-peer Wi-Fi. This works on top of 802.11 itself, the low-level Wi-Fi protocol, and thus can not be implemented without messing around with the Wi-Fi adapter drivers and raw packets and all that. It might be possible on Android, but it would at the very least require root and possibly a custom kernel. There is [an open-source implementation of AWDL and AirDrop for Linux](https://owlink.org/code/).
+NearDrop의 라이선스(퍼블릭 도메인)를 그대로 따릅니다. [UNLICENSE](UNLICENSE)를 확인해주세요.

@@ -239,12 +239,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
 	func obtainUserConsent(for transfer: TransferMetadata, from device: RemoteDeviceInfo) {
 		let fileStr=describeFiles(in: transfer)
-		self.activeIncomingTransfers[transfer.id]=TransferInfo(device: device, transfer: transfer)
+		// Links get opened on arrival, so never accept those without asking
+		let autoAccept=Settings.autoAccept && transfer.textDescription==nil
+		self.activeIncomingTransfers[transfer.id]=TransferInfo(device: device, transfer: transfer, autoAccepted: autoAccept, folder: Settings.effectiveDownloadDirectory)
 		let notificationContent=UNMutableNotificationContent()
 		notificationContent.title="NoahDrop"
 		notificationContent.subtitle=String(format:NSLocalizedString("PinCode", value: "PIN: %@", comment: ""), arguments: [transfer.pinCode!])
 		notificationContent.sound = .default
-		if Settings.autoAccept{
+		if autoAccept{
 			NearbyConnectionManager.shared.submitUserConsent(transferID: transfer.id, accept: true)
 			notificationContent.body=String(format: NSLocalizedString("ReceivingFiles", value: "Receiving %1$@ from %2$@", comment: ""), arguments: [fileStr, device.name])
 			notificationContent.categoryIdentifier="ERRORS" // no action buttons
@@ -283,13 +285,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 			}
 			notificationContent.categoryIdentifier="ERRORS"
 			UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "transferError_"+id, content: notificationContent, trigger: nil))
-		}else if Settings.autoAccept && transfer.transfer.textDescription==nil{
+		}else if transfer.autoAccepted{
 			// There's no consent notification to look at when auto-accepting, so say where the files went
 			let notificationContent=UNMutableNotificationContent()
 			notificationContent.title="NoahDrop"
 			notificationContent.body=String(format: NSLocalizedString("FilesReceived", value: "Received %1$@ from %2$@", comment: ""), arguments: [describeFiles(in: transfer.transfer), transfer.device.name])
 			notificationContent.categoryIdentifier="ERRORS"
-			notificationContent.userInfo=["receivedFolder": Settings.effectiveDownloadDirectory.path]
+			notificationContent.userInfo=["receivedFolder": transfer.folder.path]
 			UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "received_"+id, content: notificationContent, trigger: nil))
 		}
 		UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: ["transfer_"+id])
@@ -300,4 +302,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 struct TransferInfo{
 	let device:RemoteDeviceInfo
 	let transfer:TransferMetadata
+	let autoAccepted:Bool
+	let folder:URL
 }

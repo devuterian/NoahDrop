@@ -2107,7 +2107,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "폰에서 보내려면 두 기기를 같은 Wi-Fi에 두고, 공유 → Quick Share를 누른 뒤 \"%@\"을(를) 고르세요.\n\n이 Mac에서 폰으로 보내려면 Finder에서 파일을 우클릭하고 공유 → NoahDrop을 고르세요."
+            "value" : "폰에서 보내려면 두 기기를 같은 Wi-Fi에 두고, 공유 → Quick Share를 누른 뒤 \"%@\"을(를) 고르세요.\n\nMac에서 폰으로 보낼 땐 Finder에서 파일 우클릭 → 공유 → NoahDrop."
           }
         }
       }
@@ -2379,7 +2379,7 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "NoahDrop은 안드로이드 폰에서 Quick Share로 이 Mac에 파일을 보낼 수 있게 해 줘요. 메뉴 막대에 살아요.\n\n몇 가지만 하나씩 물어볼게요. 나중에 메뉴 막대 아이콘에서 전부 바꿀 수 있어요."
+            "value" : "NoahDrop은 안드로이드 폰에서 Quick Share로 이 Mac에 파일을 보낼 수 있게 해 줘요. 메뉴 막대에 아이콘으로 떠 있어요.\n\n몇 가지만 하나씩 물어볼게요. 나중에 메뉴 막대 아이콘에서 전부 바꿀 수 있어요."
           }
         }
       }

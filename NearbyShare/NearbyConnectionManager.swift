@@ -243,12 +243,26 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 	private func startTCPListener(){
 		let tcpListener=try! NWListener(using: NWParameters(tls: .none))
 		self.tcpListener=tcpListener
+		// Handlers run on the main queue (see start() below), same as everything else that touches activeConnections
 		tcpListener.stateUpdateHandler={(state:NWListener.State) in
-			if case .ready = state {
-				DispatchQueue.main.async {
-					guard self.tcpListener===tcpListener else {return}
-					self.initMDNS(port: tcpListener.port!)
+			guard self.tcpListener===tcpListener else {return}
+			switch state{
+			case .ready:
+				self.initMDNS(port: tcpListener.port!)
+			case .failed(let error):
+				print("TCP listener failed: \(error)")
+				self.mdnsService?.stop()
+				self.mdnsService=nil
+				tcpListener.cancel()
+				self.tcpListener=nil
+				// Network changes and waking from sleep can kill the listener. Try again in a bit if the user still wants to receive.
+				DispatchQueue.main.asyncAfter(deadline: .now()+5){
+					if self.isVisible && self.tcpListener==nil{
+						self.startTCPListener()
+					}
 				}
+			default:
+				break
 			}
 		}
 		tcpListener.newConnectionHandler={(connection:NWConnection) in
@@ -258,7 +272,7 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 			conn.delegate=self
 			conn.start()
 		}
-		tcpListener.start(queue: .global(qos: .utility))
+		tcpListener.start(queue: .main)
 	}
 	
 	private static func generateEndpointID()->[UInt8]{
@@ -281,6 +295,7 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 		let endpointInfo=EndpointInfo(name: Host.current().localizedName!, deviceType: .computer)
 		
 		let port:Int32=Int32(listenerPort.rawValue)
+		mdnsService?.stop()
 		mdnsService=NetService(domain: "", type: "_FC9F5ED42C8A._tcp.", name: name, port: port)
 		mdnsService?.delegate=self
 		mdnsService?.setTXTRecord(NetService.data(fromTXTRecord: [

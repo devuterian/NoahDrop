@@ -280,6 +280,15 @@ class InboundNearbyConnection: NearbyConnection{
 		currentState = .receivedPairedKeyResult
 	}
 	
+	/// The sender picks the file name, so strip anything that could point outside the download folder
+	private static func safeFileName(_ name:String) -> String{
+		let safe=(name as NSString).lastPathComponent.replacingOccurrences(of: "/", with: "_").replacingOccurrences(of: ":", with: "_")
+		if safe.isEmpty || safe=="." || safe==".."{
+			return "file"
+		}
+		return safe
+	}
+	
 	private func makeFileDestinationURL(_ initialDest:URL) -> URL{
 		var dest=initialDest
 		if FileManager.default.fileExists(atPath: dest.path){
@@ -305,7 +314,7 @@ class InboundNearbyConnection: NearbyConnection{
 		if frame.v1.introduction.fileMetadata.count>0 && frame.v1.introduction.textMetadata.isEmpty{
 			let downloadsDirectory=try NearbyConnectionManager.shared.receivedFilesDirectory()
 			for file in frame.v1.introduction.fileMetadata{
-				let dest=makeFileDestinationURL(downloadsDirectory.appendingPathComponent(file.name))
+				let dest=makeFileDestinationURL(downloadsDirectory.appendingPathComponent(InboundNearbyConnection.safeFileName(file.name)))
 				let info=InternalFileInfo(meta: FileMetadata(name: file.name, size: file.size, mimeType: file.mimeType),
 										  payloadID: file.payloadID,
 										  destinationURL: dest)

@@ -55,7 +55,10 @@ enum Settings{
 			if service.status != .enabled{
 				try service.register()
 			}
-		}else if service.status == .enabled{
+			if service.status == .requiresApproval{
+				SMAppService.openSystemSettingsLoginItems()
+			}
+		}else if service.status != .notRegistered{
 			try service.unregister()
 		}
 	}

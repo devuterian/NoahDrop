@@ -211,6 +211,7 @@ class SetupWizardController: NSWindowController, NSWindowDelegate{
 				AppDelegate.showLaunchAtLoginError(error)
 			}
 		}
+		appDelegate?.requestNotificationPermission()
 		appDelegate?.setReceiving(true)
 		close()
 	}
@@ -218,6 +219,7 @@ class SetupWizardController: NSWindowController, NSWindowDelegate{
 	func windowWillClose(_ notification: Notification) {
 		// Closed halfway through the first run: still start receiving so the app isn't silently useless; the wizard comes back next launch.
 		if !finished && !Settings.setupCompleted{
+			appDelegate?.requestNotificationPermission()
 			appDelegate?.setReceiving(true)
 		}
 		appDelegate?.setupWizardDidClose()
