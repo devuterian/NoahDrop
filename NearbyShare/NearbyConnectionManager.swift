@@ -218,6 +218,18 @@ public class NearbyConnectionManager : NSObject, NetServiceDelegate, InboundNear
 		}
 		isVisible=true
 		startTCPListener()
+		requestLocalNetworkAccess()
+	}
+	
+	/// Advertising alone never makes macOS show the local network permission prompt, and the app then
+	/// doesn't get listed under Privacy & Security → Local Network at all. A short Bonjour browse does trigger it.
+	private func requestLocalNetworkAccess(){
+		let browser=NWBrowser(for: .bonjour(type: "_FC9F5ED42C8A._tcp.", domain: nil), using: .tcp)
+		browser.browseResultsChangedHandler={_, _ in}
+		browser.start(queue: .main)
+		DispatchQueue.main.asyncAfter(deadline: .now()+3){
+			browser.cancel()
+		}
 	}
 	
 	public func becomeInvisible(){
